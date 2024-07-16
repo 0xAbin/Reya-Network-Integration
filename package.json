@@ -13,5 +13,11 @@
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^20.14.10"
+  },
+  "dependencies": {
+    "@reyaxyz/api-sdk": "^0.111.5",
+    "@reyaxyz/common": "^0.166.0",
+    "@reyaxyz/sdk": "^0.106.26",
+    "dotenv": "^16.4.5"
   }
 }
