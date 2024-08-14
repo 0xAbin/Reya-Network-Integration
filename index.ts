@@ -9,11 +9,14 @@ import { getTokenInfoByAddress } from '@reyaxyz/common';
 import { signGrantPermission } from '@reyaxyz/common';
 import { createAccount } from '@reyaxyz/sdk';
 import {AccountWalletViem} from "./src/wallet/wallet"
-import { run } from './src/script';
-import { WebSocketrun } from './src/weSocket';
-import { MarketData } from './src/testrun';
-
-
+import { run } from './src/utils/script';
+import { WebSocketrun } from './src/utils/weSocket';
+import { MarketData } from './src/getMarketdata';
+import { signGrantPermissionWallet } from './src/signTrade';
+import { getAccount } from './src/getAccount';
+import { openTrade } from './src/openTrade';
+import { Depoistwallet } from './src/depositAccount';
+import { withdrawAccount } from './src/withdraw';
 
 
 type CustomSignature = {
@@ -31,12 +34,16 @@ console.log(ReyaNetworkIntegration);
 
 
 console.log("ReyaNetwork Chainid: ", ReyaChainId.reyaNetwork);
+
 console.log("Reya Network id: ", getReyaNetwork(DEVenv));
-const reyaTokenInfo = TOKEN_INFO[ReyaChainId.reyaNetwork];
+
+const reyaTokenInfo = TOKEN_INFO[ReyaChainId.reyaCronos];
+
 reyaTokenInfo.forEach(token => {
     console.log(`Token Name: ${token.name}, Address: ${token.address}`);
   });
-console.log("Native Token Name: ", getNativeToken(ReyaChainId.reyaNetwork));
+
+console.log("Native Token Name: ", getNativeToken(ReyaChainId.reyaCronos));
 // console.log("getTokenInfoByAddress: " getTokenInfoByAddress(TOKEN_INFO[1729][Symbol]));
 
 
@@ -46,17 +53,25 @@ console.log("Native Token Name: ", getNativeToken(ReyaChainId.reyaNetwork));
 
 // ------------------------------------------------------
 
-console.log("Account PRIV KEy" , AccountWalletViem)
+// console.log("Account PRIV KEy" , AccountWalletViem)
 
 // const AccountCreate = createAccount(AccountWalletViem.address, );
 
-  
 
-const markets = ApiClient.markets.getMarkets();
-console.log('List of markets:', markets);
 
 // run();
 
 // WebSocketrun();
 
-MarketData();
+// MarketData();
+
+
+// signGrantPermissionWallet();
+
+// getAccount();
+
+// openTrade();
+
+// console.log("Wallet--->", Depoistwallet)
+
+// console.log(withdrawAccount())
